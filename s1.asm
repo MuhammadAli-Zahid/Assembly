@@ -1,0 +1,18 @@
+[org 0x0100]
+
+mov ax,0
+mov cx,10
+mov si,0
+
+l1: mov bx,[prime+si]
+    add ax,bx
+    add si,2
+    sub cx,1
+    jnz l1
+    
+mov dx,ax
+
+mov ax,0x4c00
+int 0x21
+
+prime: dw 2,3,5,7,11,13,17,19,23,29
